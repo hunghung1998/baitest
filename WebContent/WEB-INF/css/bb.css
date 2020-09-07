@@ -1,0 +1,283 @@
+
+#menu ul {
+  background: #8AD385;
+  width: 250px;
+  padding: 0;
+  list-style-type: none;
+  text-align: left;
+}
+#menu li {
+  width: auto;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 0 1em;
+}
+#menu li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  display: block;
+}
+#menu li:hover {
+  background: #CDE2CD;
+}
+#menu ul li {
+ position: relative;
+}
+#menu .sub-menu {
+ position: absolute;
+ left: 250px;
+ top: 0;
+}
+#menu .sub-menu {
+ position: absolute;
+ left: 250px;
+ top: 0;
+ display: none;
+}
+#menu li:hover .sub-menu {
+ display: block;
+}
+
+
+<ul class="sub-menu">
+        <li><a href="#">WordPress</a></li>
+        <li><a href="#"><a href="#" data-wpel-link="internal">SEO</a></a></li>
+        <li><a href="#">Hosting</a></li>
+      </ul>
+      
+      
+
+<%@page import="Controller.MyUtils"%>
+<%@page import="Controller.DBUtils"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Model.Sectors"%>
+<%@page import="java.util.List"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html>
+
+<html>
+<head>
+<style><%@include file="/WEB-INF//css/style.css"%></style>
+<meta charset="utf-8">
+<title>Sectors List</title>
+ </head>
+ <body>
+ 
+    <div id="container">	
+    <div id="menu">
+				<jsp:include page="menuchon.jsp"></jsp:include>
+			</div>
+ 	<div id="content">
+ 	<div style="float: right; padding: 10px; text-align: right;">
+		<!-- User store in session with attribute: loginedUser -->
+		Hello <b>${loginedUser.userName}</b> <br /> Search1<input style="padding: 5px 10px" type="text" name="input">
+		<button type="button" value="Submit">Tìm kiếm</button>
+	</div>
+ 				<div id="header">
+				
+      				<center><jsp:include page="menu.jsp"></jsp:include></center>
+				</div>
+    <center><h3>Sectors List</h3></center>
+
+ <a href="onclick = "thongbao()">aaa</a>
+<button>Edit</button>
+  <button style="background-color: #58257b; 
+	  border: none;
+	  color: white;
+	  padding: 5px 10px;
+	  text-align: center;
+	  text-decoration: none;
+	  display: inline-block;
+	  font-size: 16px;
+	  margin: 2px 1px;
+	  -webkit-transition-duration: 0.4s;
+	  transition-duration: 0.4s;
+	  cursor: pointer;
+	  border-radius: 4px;" type="button" onclick="functiona()">Create</button>
+	<button style="background-color: #58257b; 
+	  border: none;
+	  color: white;
+	  padding: 5px 10px;
+	  text-align: center;
+	  text-decoration: none;
+	  display: inline-block;
+	  font-size: 16px;
+	  margin: 2px 1px;
+	  -webkit-transition-duration: 0.4s;
+	  transition-duration: 0.4s;
+	  cursor: pointer;
+	  border-radius: 4px;" type="button">Export</button>
+    <p style="color: red;">${errorString}</p>
+ 
+    <table border="1" cellpadding="5" cellspacing="1" >
+       <tr>
+       	  <th></th>
+          <th>Mã loại hàng</th>
+          <th>Tên loại hàng</th>
+          <th>Trạng thái</th>
+          <th>Delete</th>
+       </tr>
+       <c:forEach items="${productList}" var="sect" >
+          <tr>
+          	 <td><input type="checkbox" value=""></td>
+             <td><a onclick = "functionb()">${sect.id}</td> 
+             <!-- <td><a href="editProduct?id=${sect.id}">${sect.id}</td>-->
+             <td>${sect.name}</td>
+    		 <td>${sect.status}</td>
+             <td>
+                <a onclick="if (!confirm('Bạn có muốn xóa không?')) { return false }" href="deleteProduct?id=${sect.id}">Delete</a>
+             </td>
+          </tr>
+       </c:forEach>
+       
+       <%
+       Connection conn =MyUtils.getStoredConnection(request);
+       	List<Sectors> list;
+       		if(request.getAttribute("item") !=null){
+       			list =(ArrayList) request.getAttribute("item");
+       		}
+       		else{
+       			list =DBUtils.querySector(conn);
+       		}
+       		for(Sectors s : list){
+       			%>
+       			<tr>
+       				<td></td>
+       				<td><%=s.getId() %></td>
+       				<td><%=s.getName() %></td>
+       				<td><%=s.getStatus() %></td>
+       			</tr>
+       		}
+       		<% }%>
+  
+    </table>
+    <dialog id="eidtsr">
+    				<center><h2>Edit Sectors</h2></center>
+    		
+ 			<c:forEach items="${productList}" var="sec" >
+	         <form method="POST" action="${pageContext.request.contextPath}/productList">
+	            <input type="hidden" name="id" value="${sec.id}" />
+	            <table border="0">
+	               <tr>
+	                  <td>Id</td>
+	                   <td style="color:red;">${sec.id}</td>
+	                   
+	               </tr>
+	               <tr>
+	                  <td>Name</td>
+	                  <td><input type="text" name="name" value="${sec.name}" /></td>
+	               </tr>
+	               <tr>
+	                  <td>Status</td>
+	                  <td><input type="text" name="status" value="${sec.status}" /></td>
+	               </tr>
+	               <tr>
+	                  <td colspan = "2">
+	                      <input type="submit" value="Submit" />
+	                      <a href="${pageContext.request.contextPath}/productList">Cancel</a>
+	                  </td>
+	               </tr>
+	            </table>
+	         </form>
+	         </c:forEach>
+	         </div>
+</dialog>
+    
+    <dialog id="hopthoai"><p style="color: red;">${errorString}</p>
+       
+       <div class="crsector">
+		    <center><h2>Create Sectors</h2></center>
+		    <p style="color: red;">${errorString}</p>
+		    <form method="POST" action="${pageContext.request.contextPath}/createProduct">
+		       
+		        <input type="text" name="id" value="${product.id}" placeholder="Nhập mã loại hàng...">
+		        <input type="text" name="name" value="${product.name}" placeholder="Nhập tên loại hàng...">
+		        <input type="text" name="status" value="${product.status}" placeholder="Nhập trạng thái...">
+		        <input type="submit" value="Submit">
+		        <a href="productList">Cancel</a>
+		    </form>
+		</div></dialog>
+    
+    <script type="text/javascript">
+    function functiona(){
+        var x = document.getElementById("hopthoai");
+        x.showModal();
+    }
+    
+    function functionb(){
+        var x = document.getElementById("eidtsr");
+        x.showModal();
+    }
+    </script>
+ </div>
+ </div>
+ 
+ 
+<!-- hop thoai xoa -->
+<script type="text/javascript">
+	function thongbao() {
+		 var result = confirm("Bạn có muốn xóa không?");
+		 if(result)  
+             return true;
+         
+		 else
+			 return false;
+	}
+</script>
+
+<script type="text/javascript">
+$(productList).ready(function()
+{
+    var submit = $("button[type='submit']");
+     
+    // bắt sự kiện click vào nút Login
+    submit.click(function()
+    {
+        var id = $("input[name='id']").val();
+        var name = $("input[name='name']").val();
+        var status = $("input[name='status']").val();
+         
+       
+      
+        var data = $('form#productList').serialize();
+        // Sử dụng $.ajax()
+        $.ajax({
+        type : 'POST', //kiểu post
+        url  : 'editProductView.jsp', //gửi dữ liệu sang trang submit.php
+        data : data,
+        success :  function(data)
+               {
+                    if (data == 'false')
+                    {
+                        alert('Sai tên đăng nhập hoặc mật khẩu');
+                    } else {
+                        $('#content').html(data);
+                    }
+               }
+        });
+        return false;
+    });
+});
+
+function getid(id){
+	$("SM_Id");
+	$("SM_Name");
+	$("SM_Status");
+	$.ajax({
+		url:
+	});
+}
+</script>
+ </body>
+</html>
+
+         

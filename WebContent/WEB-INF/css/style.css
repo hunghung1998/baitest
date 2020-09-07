@@ -1,0 +1,359 @@
+dialog {
+    
+    width: 500px;
+    height: auto;
+    margin:auto;
+    color: black;
+    margin: auto;
+    border-radius: 0px;
+    box-shadow: 2px 5px 5px gray;
+}
+
+.crsector{
+    width:100% ;
+    margin: auto;
+    border-radius: 1px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+    input[type=text] {
+    width: 80%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+ 
+ button[type=button]{
+ 	background-color: #58257b; 
+	  border: none;
+	  color: white;
+	  padding: 5px 10px;
+	  text-align: center;
+	  text-decoration: none;
+	  display: inline-block;
+	  font-size: 16px;
+	  margin: 2px 1px;
+	  -webkit-transition-duration: 0.4s;
+	  transition-duration: 0.4s;
+	  cursor: pointer;
+	  border-radius: 4px;
+ }
+ 
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+ 
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+
+
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+header{
+    background-color: #cccccc;
+    min-height: 70px;
+    padding: 15px;
+}
+main{
+    background-color: #dddddd;
+    min-height: 300px;
+    padding: 7.5px 15px;
+}
+footer{
+    background-color: #cccccc;
+    min-height: 70px;
+    padding: 15px;
+}
+.container{
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.login-form{
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    padding: 15px;
+    border: 2px dotted #cccccc;
+    border-radius: 10px;
+}
+h1{
+    color: #009999;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+.input-box{
+    margin-bottom: 10px;
+}
+.input-box input{
+    padding: 7.5px 15px;
+    width: 100%;
+    border: 1px solid #cccccc;
+    outline: none;
+}
+.btn-box{
+    text-align: right;
+    margin-top: 30px;
+}
+.btn-box button{
+    padding: 7.5px 15px;
+    border-radius: 2px;
+    background-color: #009999;
+    color: #ffffff;
+    border: none;
+    outline: none;
+}
+
+/*==Style cơ bản cho website==*/
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+body {
+    font-family: Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    line-height: 1.254em;
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    color: #3B8BBA;
+}
+a:hover,
+a:visited {
+    color: #265778;
+}
+
+
+/*==Lên khung cho website==*/
+#container {
+    padding-left: 150px;
+    position: relative;
+    left: 0;
+    width: 100%;
+}
+#menu {
+    position: fixed;
+    height: 100%;
+    background-color: #191818;
+    width: 150px;
+    left: 0;
+}
+
+/*==Trang trí menu==*/
+#menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+#menu ul li {
+    line-height: 2.9em;
+    height: 2.9em;
+}
+#menu li a {
+    display: block;
+    color: #fff;
+    padding: 0 1em;
+    border-bottom: 1px solid #333;
+}
+#menu li:hover {
+    background-color: #454545;
+}
+
+/*==Trang trí khung content==*/
+#content {
+  padding: 1em 8em;
+}
+#header,
+.call-to-action {
+    text-align: center;
+}
+
+/*==Trang trí header của content==*/
+#header{}
+#slogan {
+    color: #8997A0;
+    font-size: 0.8em;
+}
+
+/*==Call to Action==*/
+.call-to-action {
+    padding: 1.5em 20%;
+    background: #EFEFEF;
+    border: 1px solid#E8E8E8;
+}
+
+/*==Chia cột phần content==*/
+.row {
+    overflow: auto;
+    margin: 1.5em auto;
+}
+.row .col {
+    float: left;
+    width: 31.3333%;
+    margin-right: 2.99%;
+}
+.row .col:last-child {
+    float: right;
+    margin-right: 0;
+}
+/* Style cho ảnh */
+.row .col img {
+    float: left;
+    margin-right: 1em;
+}
+
+/*==Footer==*/
+#footer {
+  font-size: 85%;
+  border-top: 1px solid #E6E6E6;
+  color: #838383;
+  pading: 1em 3em;
+}/*==Style cơ bản cho website==*/
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+body {
+    font-family: Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    line-height: 1.254em;
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    color: #3B8BBA;
+}
+a:hover,
+a:visited {
+    color: #265778;
+}
+
+
+/*==Lên khung cho website==*/
+#container {
+    padding-left: 150px;
+    position: relative;
+    left: 0;
+    width: 100%;
+}
+#menu {
+    position: fixed;
+    height: 100%;
+    background-color: #191818;
+    width: 200px;
+    left: 0;
+}
+
+/*==Trang trí menu==*/
+#menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+#menu ul li {
+    line-height: 2.9em;
+    height: 2.9em;
+}
+#menu li a {
+    display: block;
+    color: #fff;
+    padding: 0 1em;
+    border-bottom: 1px solid #333;
+}
+#menu li:hover {
+    background-color: #454545;
+}
+
+/*==Trang trí khung content==*/
+#content {
+  padding: 1em 8em;
+}
+#header,
+.call-to-action {
+    text-align: center;
+}
+
+/*==Trang trí header của content==*/
+#header{}
+#slogan {
+    color: #8997A0;
+    font-size: 0.8em;
+}
+
+/*==Call to Action==*/
+.call-to-action {
+    padding: 1.5em 20%;
+    background: #EFEFEF;
+    border: 1px solid#E8E8E8;
+}
+
+/*==Chia cột phần content==*/
+.row {
+    overflow: auto;
+    margin: 1.5em auto;
+}
+.row .col {
+    float: left;
+    width: 31.3333%;
+    margin-right: 2.99%;
+}
+.row .col:last-child {
+    float: right;
+    margin-right: 0;
+}
+/* Style cho ảnh */
+.row .col img {
+    float: left;
+    margin-right: 1em;
+}
+
+/*==Footer==*/
+#footer {
+  font-size: 85%;
+  border-top: 1px solid #E6E6E6;
+  color: #838383;
+  padding: 1em 3em;
+}
+
+table, th, td{
+            border:1px solid #868585;
+        }
+        table{
+            border-collapse:collapse;
+            width:100%;
+        }
+        th, td{
+            text-align:center;
+            padding:10px;
+        }
+        table tr:nth-child(odd){
+            background-color:#eee;
+        }
+        table tr:nth-child(even){
+            background-color:white;
+        }
+        table tr:nth-child(1){
+            background-color:skyblue;
+        }
